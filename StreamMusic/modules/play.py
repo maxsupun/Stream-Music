@@ -663,7 +663,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
-                    [InlineKeyboardButton("Developer", url="https://t.me/supunma")],  
+                    [InlineKeyboardButton("Developer", url="https://t.me/supunmabot")],  
                     [InlineKeyboardButton(text="❌", callback_data="cls")],    
                 ]
             )       
