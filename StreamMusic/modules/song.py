@@ -50,7 +50,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    m = message.reply("🔎 𝔽𝕚𝕟𝕕𝕚𝕟𝕘 𝕥𝕙𝕖 𝕤𝕠𝕟𝕘...")
+    m = message.reply("🔎 𝑭𝒊𝒏𝒅𝒊𝒏𝒈 𝒕𝒉𝒆 𝒔𝒐𝒏𝒈..")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -70,13 +70,13 @@ def song(client, message):
         m.edit("❌ Found Nothing.\n\nTry another keywork or maybe spell it properly.")
         print(str(e))
         return
-    m.edit("𝔻𝕠𝕨𝕟𝕝𝕠𝕒𝕕𝕚𝕟𝕘 𝕥𝕙𝕖 𝕤𝕠𝕟𝕘")
+    m.edit("𝑫𝒐𝒘𝒏𝒍𝒐𝒂𝒅𝒊𝒏𝒈 𝒕𝒉𝒆 𝒔𝒐𝒏𝒈..")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = "**🎵 𝕌𝕡𝕝𝕠𝕒𝕕𝕖𝕕 𝕓𝕪 @SDBOTsz**"
+        rep = "**🎵 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲 @szrosebot🇱🇰**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
