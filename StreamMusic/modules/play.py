@@ -32,6 +32,7 @@ from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
+from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import Message
@@ -57,6 +58,14 @@ from StreamMusic.services.callsmusic import client as USER
 from StreamMusic.services.converter.converter import convert
 from StreamMusic.services.downloaders import youtube
 from StreamMusic.services.queues import queues
+
+JOIN_ASAP = "<b>You cant use me untill subscribe our updates channel ☹️,So Please join our updates channel by the following button and Reuse  this ( /play ) command 😊</b>"
+
+FSUBB = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/sl_bot_zone") 
+        ]]      
+    )
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
@@ -455,11 +464,18 @@ async def m_cb(b, cb):
 
 @Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
+    try:
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return
     global que
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔄 **Processing**")
+    lel = await message.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -567,7 +583,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -598,7 +614,11 @@ async def play(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
+                ],                
+                [
+                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
+                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
                 ],
                 [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
             ]
@@ -611,7 +631,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -626,10 +646,10 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
 
             while j < 5:
-                toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
-                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
-                toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
+                toxxt += f"{emojilist[j]} **👁‍🗨 Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
+                toxxt += f" ╚ **💫Duration** - {results[j]['duration']}\n"
+                toxxt += f" ╚ **👀 Views** - {results[j]['views']}\n"
+                toxxt += f" ╚ **🔔Channel** - {results[j]['channel']}\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -642,6 +662,7 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
+                        InlineKeyboardButton("Developer🤖 ", url="https://t.me/supunma"),
                     ],
                     [InlineKeyboardButton(text="❌", callback_data="cls")],
                 ]
@@ -674,18 +695,22 @@ async def play(_, message: Message):
             dlurl=url
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
+            [
                 [
-                    [
-                        InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                        InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-                    ],
-                    [
-                        InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                        InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-                    ],
-                    [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-                ]
-            )
+                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
+                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
+                ],                
+                [
+                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
+                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
+                ],
+                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            ]
+          )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
             file_path = await convert(youtube.download(url))   
@@ -735,7 +760,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔄 **Processing**")
+    lel = await message.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -798,7 +823,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🎵 **Processing**")
+    await lel.edit("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -822,18 +847,22 @@ async def ytplay(_, message: Message):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-        [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-            ],
-            [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-        ]
-    )
+                [
+                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
+                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
+                ],                
+                [
+                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
+                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
+                ],
+                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            ]
+          )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))
@@ -882,7 +911,7 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
     global que
-    lel = await message_.reply("🔄 **Processing**")
+    lel = await message_.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
@@ -1020,7 +1049,7 @@ async def jiosaavn(client: Client, message_: Message):
     global que
     if message_.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message_.reply("🔄 **Processing**")
+    lel = await message_.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
@@ -1063,7 +1092,7 @@ async def jiosaavn(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @MusicHelper to your Group and try again</b>",
+                        "\n\nOr manually add helper to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -1207,18 +1236,22 @@ async def lol_cb(b, cb):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-        [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-            ],
-            [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-        ]
-    )
+                [
+                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
+                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
+                ],                
+                [
+                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
+                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
+                ],
+                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            ]
+          )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
