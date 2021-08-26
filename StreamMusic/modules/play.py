@@ -48,11 +48,8 @@ JOIN_ASAP = "<b>You cant use me untill subscribe our updates channel ☹️,So P
 FSUBB = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/sl_bot_zone") 
-        ]],     
-        [[
-        InlineKeyboardButton(text=" Unmute me 🥺", callback_data="play") 
-        ]]    
- )         
+        ]]
+    )         
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
