@@ -43,7 +43,7 @@ from StreamMusic.services.converter.converter import convert
 from StreamMusic.services.downloaders import youtube
 from StreamMusic.services.queues import queues
 
-JOIN_ASAP = "<b>You cant use me untill subscribe our updates channel ☹️,So Please join our updates channel by the following button and Reuse  this ( /play ) command 😊</b>/n/nඔබ තවමත් අපේ channel  එකට join වෙලා නැ "
+JOIN_ASAP = "<b>You cant use me untill subscribe our updates channel ☹️,So Please join our updates channel by the following button and Reuse  this ( /play ) command 😊</b>ඔබ තවමත් අපේ channel  එකට join වෙලා නැ "
 
 FSUBB = InlineKeyboardMarkup(
         [[
