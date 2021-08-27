@@ -26,5 +26,4 @@ async def chat_member_updated(_, chat_member_updated: ChatMemberUpdated):
             in admins[chat_member_updated.chat.id]
         ) else (
             admins[chat_member_updated.chat.id].remove(
-                chat_member_updated.new_chat_member.user.id,
-            )
+                chat_member_updated.new_chat_member.user.id)
