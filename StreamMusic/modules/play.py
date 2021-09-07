@@ -619,13 +619,13 @@ async def play(_, message: Message):
             toxxt = "**Select the song you want to play**\n\n"
             j = 0
             useer=user_name
-            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
+            emojilist = ["1️⃣","2️⃣","3️⃣",]
 
             while j < 5:
-                toxxt += f"{emojilist[j]} **👁‍🗨 Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
-                toxxt += f" ╚ **💫Duration** - {results[j]['duration']}\n"
-                toxxt += f" ╚ **👀 Views** - {results[j]['views']}\n"
-                toxxt += f" ╚ **🔔Channel** - {results[j]['channel']}\n\n"
+                toxxt += f"{emojilist[j]} ** »»Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
+                toxxt += f" ╚ ** »»Duration** - {results[j]['duration']}\n"
+                toxxt += f" ╚ ** »»Views** - {results[j]['views']}\n"
+                toxxt += f" ╚ ** »»Channel** - {results[j]['channel']}\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -636,11 +636,10 @@ async def play(_, message: Message):
                         InlineKeyboardButton("3️⃣", callback_data=f'plll 2|{query}|{user_id}'),
                     ],
                     [
-                        InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
-                        InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
+                        InlineKeyboardButton("Developer", url="https://t.me/supunmabot"),
+                        InlineKeyboardButton("Updates ", url="https://t.me/supunmabot"),
                     ],
-                    [InlineKeyboardButton("Developer", url="https://t.me/supunmabot")],  
-                    [InlineKeyboardButton(text="❌", callback_data="cls")],    
+                    [InlineKeyboardButton(text=" •• close ••", callback_data="cls")],    
                 ]
             )       
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
