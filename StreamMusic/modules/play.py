@@ -591,22 +591,14 @@ async def play(_, message: Message):
         dlurl=url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-                ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
-                ],                
-                [
-                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
-                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-            ]
-        )
+                    [
+                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                    ],
+                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
+                ]
+            )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))        
@@ -679,22 +671,14 @@ async def play(_, message: Message):
             dlurl=url
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-                ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
-                ],                
-                [
-                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
-                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-            ]
-          )
+                    [
+                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                    ],
+                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
+                ]
+            )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
             file_path = await convert(youtube.download(url))   
@@ -831,22 +815,14 @@ async def ytplay(_, message: Message):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-                ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
-                ],                
-                [
-                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
-                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-            ]
-          )
+                    [
+                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                    ],
+                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
+                ]
+            )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))
@@ -1220,22 +1196,14 @@ async def lol_cb(b, cb):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-                ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
-                ],                
-                [
-                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/SLbotzone"),
-                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/SL_bot_zone"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-            ]
-          )
+                    [
+                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                    ],
+                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
+                ]
+            )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
