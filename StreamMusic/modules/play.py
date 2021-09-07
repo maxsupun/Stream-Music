@@ -611,7 +611,7 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
-          results = YoutubeSearch(query, max_results=5).to_dict()
+          results = YoutubeSearch(query, max_results=3).to_dict()
         except:
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
@@ -621,7 +621,7 @@ async def play(_, message: Message):
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣",]
 
-            while j < 5:
+            while j < 3:
                 toxxt += f"{emojilist[j]} ** »»Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
                 toxxt += f" ╚ ** »»Duration** - {results[j]['duration']}\n"
                 toxxt += f" ╚ ** »»Views** - {results[j]['views']}\n"
