@@ -145,7 +145,7 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "**Now Playing** in {}".format(message.chat.title)
+    msg = "**playlist Available🍁** in {}".format(message.chat.title)
     msg += "\n- " + now_playing
     msg += "\n- Req by " + by
     temp.pop(0)
@@ -194,7 +194,7 @@ def r_ply(type_):
             [
                 InlineKeyboardButton("Playlist 📖", "playlist"),
             ],
-            [InlineKeyboardButton("❌ Close", "cls")],
+            [InlineKeyboardButton("✪ Close ✪", "cls")],
         ]
     )
     return mar
@@ -409,7 +409,7 @@ async def m_cb(b, cb):
                 [
                     InlineKeyboardButton("Playlist 📖", "playlist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+                [InlineKeyboardButton("✪ Close ✪", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -459,7 +459,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("`🔁 Processing`")
+    lel = await message.reply("🔁 Processing")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -549,7 +549,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -567,7 +567,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("`🔁 Processing`")
+        await lel.edit("🔁 Processing ")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -593,7 +593,6 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
                         InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
                     ],
                     [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
@@ -607,7 +606,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("`🔁 Processing`")
+        await lel.edit("🔁 Processing ")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -672,7 +671,6 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
                         InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
                     ],
                     [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
@@ -727,7 +725,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("`🔁 Processing`")
+    lel = await message.reply("🔁 Processing")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -816,7 +814,6 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
                         InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
                     ],
                     [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
@@ -870,7 +867,7 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
     global que
-    lel = await message_.reply("`🔁 Processing`")
+    lel = await message_.reply("🔁 Processing")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
@@ -959,7 +956,7 @@ async def deezer(client: Client, message_: Message):
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -1099,7 +1096,7 @@ async def jiosaavn(client: Client, message_: Message):
                     text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
                 )
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(slink))
@@ -1163,7 +1160,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("You ain't allow", show_alert=True)
         return
-    await cb.message.edit("Hang On... Player Starting")
+    await cb.message.edit("`Player Starting`")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1197,7 +1194,6 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ updates ✮", url="https://t.me/SL_bot_zone"),
                         InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
                     ],
                     [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
