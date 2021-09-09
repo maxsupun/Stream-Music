@@ -707,10 +707,9 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="🏷 Name:(title) \n⏱ Duration:[vys]\n💡 Status: Playing\n🎧 Requested by:() Upi OKE.".format((
+            caption="▶️ Playing here the song \n\n🎧 Requested by: {} \n\n🏷via Youtube Music 😎".format(
                 message.from_user.mention()
-            ), duration[vys] 
-            ), title(title) 
+           ),  
         )
         os.remove("final.png")
         return await lel.delete()
