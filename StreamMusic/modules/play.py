@@ -614,8 +614,7 @@ async def play(_, message: Message):
         except:
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
-        try:
-            thum = "https://telegra.ph/file/f3f7e2c4447bf96d4ea45.jpg"       
+        try:   
             toxxt = "**Select the song you want to play**\n\n"
             j = 0
             useer=user_name
@@ -638,7 +637,7 @@ async def play(_, message: Message):
                     [InlineKeyboardButton(text=" •• close ••", callback_data="cls")],    
                 ]
             )       
-            await lel.edit(thum,toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
        
             return
 
@@ -709,9 +708,11 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ **Playing** here the song \n\n🎧 Requested by: {} \n\n🏷via Youtube Music 😎".format(
+            caption="🏷 Name:(title) \n⏱ Duration:[]\n💡 Status: Playing\n🎧 Requested by:() Upi OKE.".format((
                 message.from_user.mention()
-            ),
+            ), duration[] 
+            ), title(title)
+            ),  
         )
         os.remove("final.png")
         return await lel.delete()
