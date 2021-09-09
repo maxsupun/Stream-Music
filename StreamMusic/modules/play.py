@@ -615,6 +615,7 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
+            thum = "https://telegra.ph/file/f3f7e2c4447bf96d4ea45.jpg"       
             toxxt = "**Select the song you want to play**\n\n"
             j = 0
             useer=user_name
@@ -627,7 +628,6 @@ async def play(_, message: Message):
                 toxxt += f" ╚ ** »»Channel** - {results[j]['channel']}\n\n"
 
                 j += 1  
-            thum = "https://telegra.ph/file/f3f7e2c4447bf96d4ea45.jpg"   
             koyboard = InlineKeyboardMarkup(
                 [
                     [
