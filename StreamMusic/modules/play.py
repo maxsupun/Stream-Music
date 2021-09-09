@@ -626,7 +626,8 @@ async def play(_, message: Message):
                 toxxt += f" ╚ ** »»Views** - {results[j]['views']}\n"
                 toxxt += f" ╚ ** »»Channel** - {results[j]['channel']}\n\n"
 
-                j += 1            
+                j += 1  
+            thum = "https://telegra.ph/file/f3f7e2c4447bf96d4ea45.jpg"   
             koyboard = InlineKeyboardMarkup(
                 [
                     [
@@ -634,14 +635,10 @@ async def play(_, message: Message):
                         InlineKeyboardButton("2️⃣", callback_data=f'plll 1|{query}|{user_id}'),
                         InlineKeyboardButton("3️⃣", callback_data=f'plll 2|{query}|{user_id}'),
                     ],
-                    [
-                        InlineKeyboardButton("Developer", url="https://t.me/supunmabot"),
-                        InlineKeyboardButton("Updates ", url="https://t.me/supunmabot"),
-                    ],
                     [InlineKeyboardButton(text=" •• close ••", callback_data="cls")],    
                 ]
             )       
-            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            await lel.edit.reply_photo(thum,toxxt,reply_markup=koyboard,disable_web_page_preview=True)
        
             return
 
