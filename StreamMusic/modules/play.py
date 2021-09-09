@@ -685,7 +685,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 Track added to the queue** \n\n🎧 Requested by: you \n\n🔢 Track position: {position}!",
+            caption=f"**💡 Track added to the queue** \n**🎧 Requested by:** `you`\n**🔢 Track position:** `{position}!`",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -707,7 +707,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ Playing here the song \n\n🎧 Requested by: {} \n\n🏷via Youtube Music 😎".format(
+            caption="**💡 Status**: `playing`\n**🎧 Requested by:** {} \n\**🏷Powered by**:`Youtube Music`".format(
                 message.from_user.mention()
            ),  
         )
@@ -828,7 +828,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 Track added to the queue** \n\n🎧 Requested by: you \n\n🔢 Track position: {position}!",
+            caption=f"**💡 Track added to the queue** \n**🎧 Requested by:** `you`\n**🔢 Track position:** `{position}!`",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -850,7 +850,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ **Playing** here the song \n\n🎧 Requested by: {} \n\n🏷via Youtube Music 😎".format(
+            caption="**💡 Status**: `playing`\n**🎧 Requested by:** {} \n\**🏷Powered by**:`Youtube Music`".format(
                 message.from_user.mention()
             ),
         )
@@ -1211,7 +1211,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"**💡 Track added to the queue** \n\n🎧 Requested by: {r_by.mention} \n\n🔢 Track position: {position}!",
+            caption=f"**💡 Track added to the queue** \n**🎧 Requested by**: `you`\n**🔢 Track position:** `{position}!`",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1233,7 +1233,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ **Playing** here the song \n\n🎧 Requested by: {r_by.mention} \n\n🏷via Youtube Music 😎",
+            caption=f"**💡 Status**: `playing`\n**🎧 Requested by:** {} \n\**🏷Powered by**:`Youtube Music`",
         )
         
         os.remove("final.png")
