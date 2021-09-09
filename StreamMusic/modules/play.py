@@ -710,8 +710,7 @@ async def play(_, message: Message):
             caption="🏷 Name:(title) \n⏱ Duration:[vys]\n💡 Status: Playing\n🎧 Requested by:() Upi OKE.".format((
                 message.from_user.mention()
             ), duration[vys] 
-            ), title(title)
-            ),  
+            ), title(title) 
         )
         os.remove("final.png")
         return await lel.delete()
