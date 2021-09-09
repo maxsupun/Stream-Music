@@ -615,16 +615,15 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:   
-            toxxt = "**Select the song you want to play**\n\n"
+            toxxt = "**💡 Please select the song you want to play**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣",]
 
             while j < 3:
                 toxxt += f"{emojilist[j]} ** »»Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
-                toxxt += f" ╚ ** »»Duration** - {results[j]['duration']}\n"
-                toxxt += f" ╚ ** »»Views** - {results[j]['views']}\n"
-                toxxt += f" ╚ ** »»Channel** - {results[j]['channel']}\n\n"
+                toxxt += f" ├ ⏱ Duration: - {results[j]['duration']}\n"
+                toxxt += f" ├ 👀 Views: - {results[j]['views']}\n"
 
                 j += 1  
             koyboard = InlineKeyboardMarkup(
@@ -708,9 +707,9 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="🏷 Name:(title) \n⏱ Duration:[]\n💡 Status: Playing\n🎧 Requested by:() Upi OKE.".format((
+            caption="🏷 Name:(title) \n⏱ Duration:[vys]\n💡 Status: Playing\n🎧 Requested by:() Upi OKE.".format((
                 message.from_user.mention()
-            ), duration[] 
+            ), duration[vys] 
             ), title(title)
             ),  
         )
