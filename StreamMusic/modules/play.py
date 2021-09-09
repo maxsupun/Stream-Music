@@ -638,7 +638,7 @@ async def play(_, message: Message):
                     [InlineKeyboardButton(text=" •• close ••", callback_data="cls")],    
                 ]
             )       
-            await lel.edit.reply_photo(thum,toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            await lel.edit(thum,toxxt,reply_markup=koyboard,disable_web_page_preview=True)
        
             return
 
