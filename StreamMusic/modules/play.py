@@ -666,10 +666,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"), 
+                        InlineKeyboardButton(text="✪ Close ✪", callback_data="cls"),
                     ],
-                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
-                ]
+                ]       
             )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
@@ -809,10 +809,10 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"), 
+                        InlineKeyboardButton(text="✪ Close ✪", callback_data="cls"),
                     ],
-                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
-                ]
+                ]       
             )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
@@ -1189,10 +1189,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"), 
+                        InlineKeyboardButton(text="✪ Close ✪", callback_data="cls"),
                     ],
-                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
-                ]
+                ]       
             )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
