@@ -621,7 +621,7 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣",]
 
             while j < 3:
-                toxxt += f"{emojilist[j]} ** »»Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
+                toxxt += f"{emojilist[j]} **Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
                 toxxt += f" ├ ⏱ Duration: - {results[j]['duration']}\n"
                 toxxt += f" ├ 👀 Views: - {results[j]['views']}\n"
 
@@ -1233,6 +1233,6 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"**💡Status**:`playing`\n**🏷Powered by**:`Youtube Music`",
+            caption=f"**💡Status**:`playing`\n**🏷Powered by**:`Youtube Music`\n**🎧 Requested by**`{r_by.mention}`",
         )
         os.remove("final.png")
