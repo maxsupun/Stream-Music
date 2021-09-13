@@ -364,7 +364,7 @@ async def m_cb(b, cb):
 @authorized_users_only
 async def play(_, message: Message):
     global que
-    lel = await message.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
+    lel = await message.reply("🔁 Processing ")
 
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -508,22 +508,13 @@ async def play(_, message: Message):
         dlurl = url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
-                ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
-                ],
-                [
-                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/slbotzone"),
-                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/sl_bot_zone"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
-            ]
-        )
+                    [
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                    ],
+                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
+                ]
+            )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))        
@@ -557,22 +548,13 @@ async def play(_, message: Message):
         dlurl = url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
-                ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="📥 Download ", url=f"{dlurl}"),
-                ],
-                [
-                    InlineKeyboardButton(text="💬 Support group ", url="https://t.me/slbotzone"),
-                    InlineKeyboardButton(text="🔔 Updates channel", url="https://t.me/sl_bot_zone"),
-                ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
-            ]
-        )
+                    [
+                        InlineKeyboardButton("✮ Menu ✮", callback_data="menu"),
+                    ],
+                    [InlineKeyboardButton(text="✪ Close ✪", callback_data="cls")],
+                ]
+            )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(youtube.download(url))
@@ -617,7 +599,7 @@ async def play(_, message: Message):
 @authorized_users_only
 async def deezer(client: Client, message_: Message):
     global que
-    lel = await message_.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
+    lel = await message_.reply("🔁 Processing ")
 
     try:
       conchat = await client.get_chat(message_.chat.id)
@@ -749,7 +731,7 @@ async def deezer(client: Client, message_: Message):
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
-    lel = await message_.reply("<b> Please Wait ⏳ ...🎵 Processing Your Song ... </b>")
+    lel = await message_.reply("🔁 Processing ")
     try:
       conchat = await client.get_chat(message_.chat.id)
       conid = conchat.linked_chat.id
