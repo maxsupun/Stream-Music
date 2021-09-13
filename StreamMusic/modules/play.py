@@ -47,7 +47,7 @@ JOIN_ASAP = "<b>You can't use this command untill subscribe my channel😈</b> "
 
 FSUBB = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/szroseupdates") 
+        InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/SL_bot_zone") 
         ]]
     )         
 
@@ -449,7 +449,7 @@ async def m_cb(b, cb):
 @Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
     try:
-        await message._client.get_chat_member(int("-1001525725426"), message.from_user.id)
+        await message._client.get_chat_member(int("-1001325914694"), message.from_user.id)
     except UserNotParticipant:
         await message.reply_text(
         text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
