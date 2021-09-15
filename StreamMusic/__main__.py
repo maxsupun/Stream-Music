@@ -1,4 +1,4 @@
-# StreamMusic (Telegram bot project)
+# StreamMusic Telegram bot project
 # Copyright (C) 2021  Sadew Jayasekara & Rojserbest
 
 # This program is free software: you can redistribute it and/or modify
