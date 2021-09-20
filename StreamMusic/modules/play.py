@@ -626,7 +626,6 @@ async def play(_, message: Message):
                 toxxt += f" ├ 👀 Views: - {results[j]['views']}\n"
 
                 j += 1  
-            THUMB_IMG = "https://telegra.ph/file/1c7699a722c49e155a166.jpg"
             koyboard = InlineKeyboardMarkup(
                 [
                     [
@@ -638,7 +637,7 @@ async def play(_, message: Message):
                 ]
             )       
             await message.reply_photo(
-                photo=f"{THUMB_IMG}",
+                photo=f"{thumbnail}",
                 caption=toxxt,
                 reply_markup=keyboard
             )
