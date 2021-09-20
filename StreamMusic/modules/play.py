@@ -614,7 +614,8 @@ async def play(_, message: Message):
         except:
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
-        try:   
+        try: 
+            THUMB_IMG = "https://telegra.ph/file/1c7699a722c49e155a166.jpg"
             toxxt = "**💡 Please select the song you want to play**\n\n"
             j = 0
             useer=user_name
@@ -637,7 +638,7 @@ async def play(_, message: Message):
                 ]
             )       
             await message.reply_photo(
-                photo=f"{thumbnail}",
+                photo=f"{THUMB_IMG}",
                 caption=toxxt,
                 reply_markup=keyboard
             )
