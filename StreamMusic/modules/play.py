@@ -626,6 +626,7 @@ async def play(_, message: Message):
                 toxxt += f" ├ 👀 Views: - {results[j]['views']}\n"
 
                 j += 1  
+            THUMB_IMG = "https://telegra.ph/file/1c7699a722c49e155a166.jpg"
             koyboard = InlineKeyboardMarkup(
                 [
                     [
@@ -636,7 +637,12 @@ async def play(_, message: Message):
                     [InlineKeyboardButton(text=" •• close ••", callback_data="cls")],    
                 ]
             )       
-            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            await message.reply_photo(
+                photo=f"{THUMB_IMG}",
+                caption=toxxt,
+                reply_markup=keyboard
+            )
+            await lel.delete()    
        
             return
 
