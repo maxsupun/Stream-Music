@@ -614,19 +614,19 @@ async def play(_, message: Message):
         except:
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
-        try: 
-            THUMB_IMG = "https://telegra.ph/file/8571c001733b8bd923fac.jpg"
-            toxxt = "**💡 Please select the song you want to play**\n\n"
+        try:
+            toxxt = "**Select the song you want to play**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
 
             while j < 5:
-                toxxt += f"{emojilist[j]} **Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})**\n"
-                toxxt += f" ├ ⏱ Duration: - {results[j]['duration']}\n"
-                toxxt += f" ├ 👀 Views: - {results[j]['views']}\n"
+                toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
+                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
+                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
+                toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
 
-                j += 1  
+                j += 1            
             koyboard = InlineKeyboardMarkup(
                 [
                     [
@@ -638,18 +638,13 @@ async def play(_, message: Message):
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
-                    [InlineKeyboardButton(text=" •• close ••", callback_data="cls")],    
+                    [InlineKeyboardButton(text="❌", callback_data="cls")],
                 ]
             )       
-            await message.reply_photo(
-                photo=f"{THUMB_IMG}",
-                caption=toxxt,
-                reply_markup=koyboard
-            )
-            await lel.delete()    
-       
+            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
-
+            # Returning to pornhub
         except:
             await lel.edit("No Enough results to choose.. Starting direct play..wait")
                         
