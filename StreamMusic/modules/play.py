@@ -48,7 +48,7 @@ JOIN_ASAP = "<b>You can't use this command untill subscribe my channel😈</b> "
 
 FSUBB = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/SL_bot_zone") 
+        InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/szteambots") 
         ]]
     )         
 
