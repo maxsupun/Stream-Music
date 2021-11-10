@@ -44,11 +44,11 @@ from StreamMusic.services.converter.converter import convert
 from StreamMusic.services.downloaders import youtube
 from StreamMusic.services.queues import queues
 
-JOIN_ASAP = "<b>You can't use this command untill subscribe my channel😈</b> "
+JOIN_ASAP = "<b>You can't use this command untill subscribe my channel so please join it & try again</b> "
 
 FSUBB = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="  Join My Channel 🔔 ", url=f"https://t.me/szteambots") 
+        InlineKeyboardButton(text="Join My Channel🗣", url=f"https://t.me/szteambots") 
         ]]
     )         
 
@@ -639,7 +639,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
-                    [InlineKeyboardButton(text="❌", callback_data="cls")],
+                    [InlineKeyboardButton(text="🗑", callback_data="cls")],
                 ]
             )       
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
